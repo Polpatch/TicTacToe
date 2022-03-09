@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="401.31171mm"
+   height="67.073257mm"
+   viewBox="0 0 401.31171 67.073257"
+   version="1.1"
+   id="svg5368"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="upperArm.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview5370"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="true"
+     inkscape:zoom="0.25"
+     inkscape:cx="716"
+     inkscape:cy="758"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid5457" />
+  </sodipodi:namedview>
+  <defs
+     id="defs5365" />
+  <g
+     inkscape:label="Livello 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(105.70153,-105.32515)">
+    <path
+       d="m -105.70711,121.11148 c 0.10669,-3.42994 0.22738,-4.93138 0.77604,-6.39761 1.61409,-4.31356 4.80585,-7.39155 9.222492,-8.89377 1.415571,-0.48147 5.963232,-0.49495 166.95209,-0.49495 158.864948,0 165.551728,0.0191 166.865948,0.47765 4.65182,1.62294 7.57957,4.5487 9.44464,9.43827 0.55089,1.44424 0.55825,1.76064 0.63635,27.32418 l 0.079,25.86302 h 23.67037 23.67036 v 1.98507 1.98507 l -49.41094,-0.0668 -49.41093,-0.0668 -0.0777,-1.91823 -0.0777,-1.91823 h 23.82409 23.82408 l -0.003,-25.06927 c -0.003,-26.37634 -0.003,-26.33572 -1.1825,-28.64114 -1.20181,-2.34623 -3.4499,-4.24194 -6.07137,-5.11967 -1.20612,-0.40387 -13.62794,-0.43637 -165.761378,-0.43372 -144.98793,0.002 -164.611538,0.0496 -165.758139,0.3974 -1.82154,0.55258 -3.310912,1.48216 -4.579181,2.85808 -2.146022,2.32815 -2.712462,4.14478 -2.716342,8.71155"
+       style="fill:#ffffff;stroke-width:0.0700042"
+       id="path5363"
+       sodipodi:nodetypes="cccscsscccccccccccccscccc" />
+  </g>
+</svg>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="281.51663mm"
+   height="274.92523mm"
+   viewBox="0 0 281.51663 274.92523"
+   version="1.1"
+   id="svg2964"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="tableGame.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview2966"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="0.37059484"
+     inkscape:cx="585.54513"
+     inkscape:cy="694.8289"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2961" />
+  <g
+     inkscape:label="Livello 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(13.319618,-19.961664)">
+    <path
+       d="m 77.167879,250.54602 v -44.31771 h -45.243747 -45.24375 v -1.98437 -1.98438 h 45.24375 45.243747 v -44.97917 -44.97915 h -45.243747 -45.24375 v -1.98438 -1.98437 h 45.24375 45.243747 V 64.147073 19.961664 h 1.984381 1.984369 V 64.147073 108.33249 H 127.30642 173.4762 V 64.147073 19.961664 h 1.9844 1.98435 v 44.185409 44.185417 h 45.37603 45.37604 v 1.98437 1.98438 h -45.37604 -45.37603 v 44.97915 44.97917 h 45.37603 45.37604 v 1.98438 1.98437 h -45.37604 -45.37603 v 44.3293 44.32928 l -1.91823,-0.0777 -1.91823,-0.0777 -0.0669,-44.25157 -0.0669,-44.25155 h -46.169 -46.169021 v 44.3177 44.31772 h -1.98437 -1.98438 z M 173.4762,157.28039 V 112.30124 H 127.30642 81.136629 v 44.97915 44.97917 h 46.169791 46.16978 z"
+       style="fill:#ffffff;stroke-width:0.0185219"
+       id="path2883" />
+  </g>
+</svg>

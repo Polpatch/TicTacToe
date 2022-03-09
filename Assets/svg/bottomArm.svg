@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="401.3064mm"
+   height="66.58387mm"
+   viewBox="0 0 401.3064 66.58387"
+   version="1.1"
+   id="svg3397"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="bottomArm.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview3399"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="0.37059484"
+     inkscape:cx="777.12902"
+     inkscape:cy="114.6805"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid5197" />
+  </sodipodi:namedview>
+  <defs
+     id="defs3394" />
+  <g
+     inkscape:label="Livello 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(166.68631,-146.88488)">
+    <path
+       d="m -155.24353,213.29149 c -3.89744,-0.77936 -7.53063,-3.36386 -9.53374,-6.78191 -1.42721,-2.43536 -1.76896,-4.55509 -1.90904,-8.87396 l 3.90525,-0.0144 c 0.004,4.56676 0.57032,6.38339 2.71634,8.71154 1.26827,1.37591 2.75764,2.3055 4.57919,2.85808 1.14659,0.34782 20.7702,0.39486 165.758128,0.3974 152.133442,0.003 164.555262,-0.0299 165.761462,-0.43373 2.62147,-0.87773 4.86955,-2.77344 6.07137,-5.11966 1.18052,-2.30471 1.1792,-2.27314 1.1825,-28.50885 l 0.003,-24.93698 h -23.8125 -23.8125 v -1.85209 -1.85208 h 49.47709 49.47708 v 1.85208 1.85209 h -23.6704 -23.67034 l -0.0791,25.73073 c -0.0782,25.42804 -0.0856,25.74792 -0.63638,27.19189 -1.83933,4.82248 -4.57261,7.59513 -9.29521,9.42901 -1.21245,0.47082 -6.70949,0.48815 -166.353892,0.52469 -90.805,0.0209 -165.576238,-0.0574 -166.158328,-0.17383 z"
+       style="fill:#ffffff;stroke-width:0.0700042"
+       id="path4711"
+       sodipodi:nodetypes="csccssccsccccccccccccscsccc" />
+  </g>
+</svg>
