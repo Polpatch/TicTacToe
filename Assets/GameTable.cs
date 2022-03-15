@@ -31,6 +31,7 @@ class GameTable{
         return this.CheckIfWin(pos, playerSymbol);
     }
 
+    //TODO change the logic for victory recognition, the current logic is too clunky
     private Vector2Int[] CheckIfWin(Vector2Int pos, char symbol){
         
         Vector2Int[] res = null;
