@@ -49,7 +49,7 @@ public class CoreGame : MonoBehaviour
     }
 
     public void cellIsPressed(Vector2Int cellPosition){
-        Vector2Int[] victoryCells = this.gridTable.insertNewPosition(cellPosition, this.getCurrentPlayer());
+        List<Vector2Int> victoryCells = this.gridTable.InsertNewPosition(cellPosition, this.getCurrentPlayer());
 
         if(victoryCells == null)
             this.currentPlayer = (currentPlayer + 1)%symbolTurns.Count;

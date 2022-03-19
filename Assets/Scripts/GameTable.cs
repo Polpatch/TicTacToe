@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 class GameTable{
@@ -19,73 +21,71 @@ class GameTable{
         }
     }
 
-    public Vector2Int[] insertNewPosition(Vector2Int pos, string playerSymbol){
+    public List<Vector2Int> InsertNewPosition(Vector2Int pos, string playerSymbol){
         if(playerSymbol.Length >= 1)
-            return insertNewPosition(pos, (char)playerSymbol[0]);
+            return InsertNewPosition(pos, (char)playerSymbol[0]);
         return null;
     }
 
-    public Vector2Int[] insertNewPosition(Vector2Int pos, char playerSymbol){
+    public List<Vector2Int> InsertNewPosition(Vector2Int pos, char playerSymbol){
         this.grid[pos.x, pos.y] = playerSymbol;
 
-        return this.CheckIfWin(pos, playerSymbol);
+        return this.CheckVictory(pos, playerSymbol);
     }
 
-    //TODO change the logic for victory recognition, the current logic is too clunky
-    private Vector2Int[] CheckIfWin(Vector2Int pos, char symbol){
-        
-        Vector2Int[] res = null;
+    private List<Vector2Int> CheckVictory(Vector2Int pos, char symbol){
 
-        /// check vertical
-        if(this.grid[pos.x, (Y_SIZE+pos.y-1)%Y_SIZE] == symbol &&
-                this.grid[pos.x, pos.y] == symbol &&
-                this.grid[pos.x, (pos.y+1)%Y_SIZE] == symbol){
-            res = new Vector2Int[3];
-            res[0] = new Vector2Int(pos.x, (Y_SIZE+pos.y-1)%Y_SIZE);
-            res[1] = new Vector2Int(pos.x, pos.y);
-            res[2] = new Vector2Int(pos.x, (pos.y+1)%Y_SIZE);
+        //select direction
+        foreach (Vector2Int dir in GetDirection())
+        {
+            //insert new position to victorylist
+            List<Vector2Int> checkedPosList = new List<Vector2Int>{pos};
+            Vector2Int currentDir = dir;
 
-            return res;
+            Vector2Int currentPos = new Vector2Int(pos.x, pos.y);
+
+            for (int i = 0; i < Y_SIZE; i++)
+            {
+                //1 step
+                currentPos = currentPos + currentDir;
+
+                //if is a border invert direction and continue
+                if(IsOutOfBound(currentPos)){
+                    currentDir = -currentDir;
+                    currentPos = currentPos + currentDir;
+
+                    continue;
+                }
+
+                //if is opponent break
+                if(this.grid[currentPos.x, currentPos.y] != symbol) 
+                    break;
+
+                //if is already in list continue
+                if(checkedPosList.Contains(currentPos))
+                    continue;
+
+                //the cell has the samesymbol of player
+                checkedPosList.Add(currentPos);
+
+                //if list.count == 3 return win
+                if(checkedPosList.Count == Y_SIZE) return checkedPosList;
+            }
         }
-
-        /// check horizontal
-        if(this.grid[(X_SIZE+pos.x-1)%X_SIZE, pos.y] == symbol &&
-                this.grid[pos.x, pos.y] == symbol &&
-                this.grid[(pos.x+1)%X_SIZE, pos.y] == symbol){
-            res = new Vector2Int[3];
-            res[0] = new Vector2Int((X_SIZE+pos.x-1)%X_SIZE, pos.y);
-            res[1] = new Vector2Int(pos.x, pos.y);
-            res[2] = new Vector2Int((pos.x+1)%X_SIZE, pos.y);
-
-            return res;
-        }
-
-        /// check diagonals
-        if(pos.y ==  pos.x && 
-                this.grid[(X_SIZE+pos.x-1)%X_SIZE, (Y_SIZE+pos.y-1)%Y_SIZE] == symbol &&
-                this.grid[pos.x, pos.y] == symbol &&
-                this.grid[(pos.x+1)%X_SIZE, (pos.y+1)%Y_SIZE] == symbol){
-            res = new Vector2Int[3];
-            res[0] = new Vector2Int((X_SIZE+pos.x-1)%X_SIZE, (Y_SIZE+pos.y-1)%Y_SIZE);
-            res[1] = new Vector2Int(pos.x, pos.y);
-            res[2] = new Vector2Int((pos.x+1)%X_SIZE, (pos.y+1)%Y_SIZE);
-
-            return res;
-        }
-        
-        if(pos.y + pos.x == 2 &&
-            this.grid[(pos.x+1)%X_SIZE, (Y_SIZE+pos.y-1)%Y_SIZE] == symbol &&
-                this.grid[pos.x, pos.y] == symbol &&
-                this.grid[(X_SIZE+pos.x-1)%X_SIZE, (pos.y+1)%Y_SIZE] == symbol){
-            res = new Vector2Int[3];
-            res[0] = new Vector2Int((pos.x+1)%X_SIZE, (Y_SIZE+pos.y-1)%Y_SIZE);
-            res[1] = new Vector2Int(pos.x, pos.y);
-            res[2] = new Vector2Int((X_SIZE+pos.x-1)%X_SIZE, (pos.y+1)%Y_SIZE);
-
-            return res;
-        }
-
         return null;
+    }
+
+    private List<Vector2Int> GetDirection(){
+        return new List<Vector2Int>{
+            Vector2Int.up,
+            Vector2Int.left,
+            Vector2Int.one,
+            new Vector2Int(1, -1)
+        };
+    }
+
+    private bool IsOutOfBound(Vector2Int pos){
+        return pos.x >= X_SIZE || pos.x < 0 || pos.y >= Y_SIZE || pos.y < 0;
     }
 
 }
