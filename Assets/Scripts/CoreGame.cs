@@ -57,7 +57,7 @@ public class CoreGame : MonoBehaviour
 
         if(moveResult == null){
             this.currentPlayer = (currentPlayer + 1)%symbolTurns.Count;
-            modalInfo.CloseModal();
+            // modalInfo.CloseModal();
         }
         else{
             ManageWin(moveResult);

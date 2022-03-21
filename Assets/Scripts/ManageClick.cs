@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
 
+using UnityEngine.EventSystems;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
@@ -60,7 +61,7 @@ public class ManageClick : MonoBehaviour
 
     void OnMouseUp(){
 
-        if(Input.GetMouseButtonUp(0)){
+        if(Input.GetMouseButtonUp(0) && !EventSystem.current.IsPointerOverGameObject()){
             if(this.spriteRenderer.sprite == null) {
                 changeSprite(getCurrentPlayer());
                 this.coreGameIstance.cellIsPressed(this.grindPosition);
