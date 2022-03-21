@@ -86,7 +86,7 @@ public class ManageClick : MonoBehaviour
     /// </summary>
     /// <returns>Name of the player</returns>
     string getCurrentPlayer(){
-        return this.coreGameIstance.getCurrentPlayer();
+        return this.coreGameIstance.getCurrentSymbol();
     }
 
     private void ResetSprite(){

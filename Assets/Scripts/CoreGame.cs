@@ -14,6 +14,8 @@ public class CoreGame : MonoBehaviour
 
     private GameTable gridTable;
 
+    private ModalInfoController modalInfo;
+
     void Awake(){
         instance = this;
     }
@@ -30,6 +32,8 @@ public class CoreGame : MonoBehaviour
         }
 
         this.gridTable = new GameTable();
+
+        modalInfo = ModalInfoController.Instance;
     }
 
     // Update is called once per frame
@@ -44,19 +48,45 @@ public class CoreGame : MonoBehaviour
         }
     }
 
-    public string getCurrentPlayer(){
+    public string getCurrentSymbol(){
         return this.symbolTurns[currentPlayer];
     }
 
     public void cellIsPressed(Vector2Int cellPosition){
-        Vector2Int[] victoryCells = this.gridTable.insertNewPosition(cellPosition, this.getCurrentPlayer());
+        Vector2Int[] moveResult = this.gridTable.insertNewPosition(cellPosition, this.getCurrentSymbol());
 
-        if(victoryCells == null)
+        if(moveResult == null){
             this.currentPlayer = (currentPlayer + 1)%symbolTurns.Count;
-        else{
-            Debug.Log(this.mapPlayerSymbol[this.getCurrentPlayer()].getName() + "is the winner with symbol " + this.getCurrentPlayer());
-            ManageClick.resetEvent.Invoke();
-            this.gridTable = new GameTable();
+            modalInfo.CloseModal();
         }
+        else{
+            ManageWin(moveResult);
+        }
+    }
+
+    private PlayerContext GetCurrentPlayer(){
+        return this.mapPlayerSymbol[this.getCurrentSymbol()];
+    }
+
+    private void ManageWin(Vector2Int[] moveResult){
+        string message = "";
+        if(moveResult.Length == 3){
+            PlayerContext currentPl = GetCurrentPlayer();
+            currentPl.addPoint();
+
+            Debug.Log(GetCurrentPlayer().getName() + "is the winner with symbol " + this.getCurrentSymbol());
+            message = currentPl.getName() + " wins this match!";
+        }
+        else{
+            message = "The match is a draw!";
+        }
+
+        modalInfo.OpenModal(message, RestartGame);
+
+    }
+
+    private void RestartGame(){
+        ManageClick.resetEvent.Invoke();
+        this.gridTable = new GameTable();
     }
 }
