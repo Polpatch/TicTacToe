@@ -53,14 +53,14 @@ public class CoreGame : MonoBehaviour
     }
 
     public void cellIsPressed(Vector2Int cellPosition){
-        Vector2Int[] moveResult = this.gridTable.insertNewPosition(cellPosition, this.getCurrentSymbol());
+        List<Vector2Int> victoryCells = this.gridTable.InsertNewPosition(cellPosition, this.getCurrentSymbol());
 
-        if(moveResult == null){
+        if(victoryCells == null){
             this.currentPlayer = (currentPlayer + 1)%symbolTurns.Count;
             // modalInfo.CloseModal();
         }
         else{
-            ManageWin(moveResult);
+            ManageWin(victoryCells);
         }
     }
 
@@ -68,9 +68,9 @@ public class CoreGame : MonoBehaviour
         return this.mapPlayerSymbol[this.getCurrentSymbol()];
     }
 
-    private void ManageWin(Vector2Int[] moveResult){
+    private void ManageWin(List<Vector2Int> moveResult){
         string message = "";
-        if(moveResult.Length == 3){
+        if(moveResult.Count == 3){
             PlayerContext currentPl = GetCurrentPlayer();
             currentPl.addPoint();
 
