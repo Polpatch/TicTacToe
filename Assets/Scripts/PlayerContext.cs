@@ -1,3 +1,5 @@
+using UnityEngine;
+
 /// <summary>
 /// The class stores information about a player, such as number of points and associated symbol
 /// </summary>
@@ -5,11 +7,23 @@ public class PlayerContext{
     private string name;
     private string symbol;
     private int score;
+    private bool isCpu;
+    private ICpuCore cpuinstance;
 
-    public PlayerContext(string playerName, string playerSymbol){
+    public bool IsCpu { get => isCpu; }
+
+    public PlayerContext(string playerName, string playerSymbol, bool isCpu){
         this.name = playerName;
         this.symbol = playerSymbol;
         this.score = 0;
+        this.isCpu = isCpu;
+        if(isCpu){
+            cpuinstance = CpuFactory.GetRandomCpu();
+        }
+        else{
+            cpuinstance = null;
+        }
+
     }
 
     public string getName(){
@@ -45,5 +59,9 @@ public class PlayerContext{
         this.score = 0;
     }
 
+    public Vector2Int GetNextMove(GameTable table){
+        if(cpuinstance == null) return new Vector2Int(-1, -1);
 
+        return cpuinstance.GetNextMove(table);
+    }
 }

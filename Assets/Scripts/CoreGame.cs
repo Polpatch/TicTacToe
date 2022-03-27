@@ -28,7 +28,7 @@ public class CoreGame : MonoBehaviour
         this.symbolTurns.Add("O");
         int playerNumber = 1;
         foreach (var symbol in this.symbolTurns){
-            this.mapPlayerSymbol.Add(symbol, new PlayerContext("Player "+playerNumber++, "X"));
+            this.mapPlayerSymbol.Add(symbol, new PlayerContext("Player "+playerNumber++, symbol, symbol == "O"));
         }
 
         this.gridTable = new GameTable();
@@ -58,10 +58,25 @@ public class CoreGame : MonoBehaviour
         if(victoryCells == null){
             this.currentPlayer = (currentPlayer + 1)%symbolTurns.Count;
             // modalInfo.CloseModal();
+            GetNextClick();
         }
         else{
             ManageWin(victoryCells);
         }
+    }
+
+    //TODO manage possibility to have both player as cpu
+    private void GetNextClick()
+    {
+        PlayerContext player = GetCurrentPlayer();
+
+        if(!player.IsCpu) return;
+
+        Vector2Int nextMove = player.GetNextMove(this.gridTable);
+
+        Debug.Log( "next move is " + nextMove);
+        ManageClick.cpuClickEvent.Invoke(nextMove);
+
     }
 
     private PlayerContext GetCurrentPlayer(){
@@ -88,5 +103,7 @@ public class CoreGame : MonoBehaviour
     private void RestartGame(){
         ManageClick.resetEvent.Invoke();
         this.gridTable = new GameTable();
+
+        GetNextClick();
     }
 }

@@ -7,6 +7,10 @@ using UnityEngine.EventSystems;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
+[System.Serializable]
+public class ClickCpuEvent : UnityEvent<Vector2Int>
+{
+}
 public class ManageClick : MonoBehaviour
 {
     /// <summary>
@@ -27,6 +31,7 @@ public class ManageClick : MonoBehaviour
     private CoreGame coreGameIstance;
 
     public static UnityEvent resetEvent;
+    public static ClickCpuEvent cpuClickEvent;
 
     void Start()
     {
@@ -43,6 +48,11 @@ public class ManageClick : MonoBehaviour
             ManageClick.resetEvent = new UnityEvent();
         
         ManageClick.resetEvent.AddListener(ResetSprite);
+        
+        if (ManageClick.cpuClickEvent == null)
+            ManageClick.cpuClickEvent = new ClickCpuEvent();
+        
+        ManageClick.cpuClickEvent.AddListener(CpuClickHandler);
     }
 
     /// <summary>
@@ -63,11 +73,21 @@ public class ManageClick : MonoBehaviour
 
         if(Input.GetMouseButtonUp(0) && !EventSystem.current.IsPointerOverGameObject()){
             if(this.spriteRenderer.sprite == null) {
-                changeSprite(getCurrentPlayer());
-                this.coreGameIstance.cellIsPressed(this.grindPosition);
+                Click();
             }
         }
 
+    }
+
+    private void Click(){
+        changeSprite(getCurrentPlayer());
+        this.coreGameIstance.cellIsPressed(this.grindPosition);
+    }
+
+    private void CpuClickHandler(Vector2Int pos){
+        if(grindPosition == pos){
+            Click();
+        }
     }
 
     /// <summary>
